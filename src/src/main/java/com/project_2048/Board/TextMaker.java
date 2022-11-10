@@ -1,26 +1,30 @@
-package com.example.demo;
+package com.project_2048.Board;
 
+import com.project_2048.GameScene;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-class TextMaker {
+public class TextMaker {
     private static TextMaker singleInstance = null;
 
     private TextMaker() {
 
     }
 
-    static TextMaker getSingleInstance() {
+    public static TextMaker getSingleInstance() {
         if (singleInstance == null)
             singleInstance = new TextMaker();
         return singleInstance;
     }
 
     Text madeText(String input, double xCell, double yCell, Group root) {
+        //??
         double length = GameScene.getLENGTH();
+
         double fontSize = (3 * length) / 7.0;
+
         Text text = new Text(input);
         text.setFont(Font.font(fontSize));
         text.relocate((xCell + (1.2)* length / 7.0), (yCell + 2 * length / 7.0));
@@ -29,7 +33,7 @@ class TextMaker {
         return text;
     }
 
-    static void changeTwoText(Text first, Text second) {
+    public static void changeTwoText(Text first, Text second) {
         String temp;
         temp = first.getText();
         first.setText(second.getText());

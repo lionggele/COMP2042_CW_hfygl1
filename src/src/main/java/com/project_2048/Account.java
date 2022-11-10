@@ -1,14 +1,6 @@
-package com.example.demo;
-
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
+package com.project_2048;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Account implements Comparable<Account> {
     private long score = 0;

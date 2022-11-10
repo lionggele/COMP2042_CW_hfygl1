@@ -1,5 +1,6 @@
-package com.example.demo;
+package com.project_2048.Main;
 
+import com.project_2048.GameScene;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Group;

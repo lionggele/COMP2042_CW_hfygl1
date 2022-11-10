@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.project_2048.Board;
 
 import javafx.event.EventHandler;
 import javafx.scene.Group;

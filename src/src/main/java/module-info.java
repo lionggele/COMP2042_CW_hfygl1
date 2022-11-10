@@ -1,7 +1,11 @@
-module com.example.demo {
+module com.project_2048 {
     requires javafx.controls;
     requires javafx.fxml;
 
-    opens com.example.demo to javafx.fxml;
-    exports com.example.demo;
+    opens com.project_2048 to javafx.fxml;
+    exports com.project_2048;
+    exports com.project_2048.Main;
+    opens com.project_2048.Main to javafx.fxml;
+    exports com.project_2048.Board;
+    opens com.project_2048.Board to javafx.fxml;
 }

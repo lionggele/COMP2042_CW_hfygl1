@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.project_2048.Board;
 
 
 import javafx.scene.Group;
@@ -28,6 +28,7 @@ public class Cell {
         rectangle.setWidth(scale);
         this.root = root;
         rectangle.setFill(Color.rgb(224, 226, 226, 0.5));
+        //??
         this.textClass = TextMaker.getSingleInstance().madeText("0", x, y, root);
         root.getChildren().add(rectangle);
     }
@@ -51,6 +52,7 @@ public class Cell {
         cell.setColorByNumber(cell.getNumber());
     }
 
+    //need to understand more
     void adder(Cell cell) {
         cell.getTextClass().setText((cell.getNumber() + this.getNumber()) + "");
         textClass.setText("0");
