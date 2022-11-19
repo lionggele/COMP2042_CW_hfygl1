@@ -19,7 +19,7 @@ public class TextMaker {
         return singleInstance;
     }
 
-    Text madeText(String input, double xCell, double yCell, Group root) {
+    public Text madeText(String input, double xCell, double yCell, Group root) {
         //??
         double length = GameScene.getLENGTH();
 
@@ -29,7 +29,6 @@ public class TextMaker {
         text.setFont(Font.font(fontSize));
         text.relocate((xCell + (1.2)* length / 7.0), (yCell + 2 * length / 7.0));
         text.setFill(Color.WHITE);
-
         return text;
     }
 
@@ -40,6 +39,7 @@ public class TextMaker {
         second.setText(temp);
 
         double tempNumber;
+
         tempNumber = first.getX();
         first.setX(second.getX());
         second.setX(tempNumber);

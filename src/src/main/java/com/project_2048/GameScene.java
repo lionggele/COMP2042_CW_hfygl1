@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 
 import java.util.Random;
 
+
 public class GameScene {
     private static int HEIGHT = 700;
     private static int n = 4;
@@ -24,12 +25,17 @@ public class GameScene {
     private Group root;
     private long score = 0;
 
+    private enum STATE{
+        MENU,
+        GAME
+    };
+
     static void setN(int number) {
         n = number;
         LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
     }
 
-    static double getLENGTH() {
+    public static double getLENGTH() {
         return LENGTH;
     }
 
@@ -67,8 +73,8 @@ public class GameScene {
         if (random.nextInt() % 2 == 0)
             putTwo = false;
         int xCell, yCell;
-            xCell = random.nextInt(aForBound+1);
-            yCell = random.nextInt(bForBound+1);
+        xCell = random.nextInt(aForBound+1);
+        yCell = random.nextInt(bForBound+1);
         if (putTwo) {
             text = textMaker.madeText("2", emptyCells[xCell][yCell].getX(), emptyCells[xCell][yCell].getY(), root);
             emptyCells[xCell][yCell].setTextClass(text);
@@ -284,31 +290,31 @@ public class GameScene {
         randomFillNumber(1);
 
         gameScene.addEventHandler(KeyEvent.KEY_PRESSED, key ->{
-                Platform.runLater(() -> {
-                    int haveEmptyCell;
-                    if (key.getCode() == KeyCode.DOWN) {
-                        GameScene.this.moveDown();
-                    } else if (key.getCode() == KeyCode.UP) {
-                        GameScene.this.moveUp();
-                    } else if (key.getCode() == KeyCode.LEFT) {
-                        GameScene.this.moveLeft();
-                    } else if (key.getCode() == KeyCode.RIGHT) {
-                        GameScene.this.moveRight();
-                    }
-                    GameScene.this.sumCellNumbersToScore();
-                    scoreText.setText(score + "");
-                    haveEmptyCell = GameScene.this.haveEmptyCell();
-                    if (haveEmptyCell == -1) {
-                        if (GameScene.this.canNotMove()) {
-                            primaryStage.setScene(endGameScene);
+            Platform.runLater(() -> {
+                int haveEmptyCell;
+                if (key.getCode() == KeyCode.DOWN) {
+                    GameScene.this.moveDown();
+                } else if (key.getCode() == KeyCode.UP) {
+                    GameScene.this.moveUp();
+                } else if (key.getCode() == KeyCode.LEFT) {
+                    GameScene.this.moveLeft();
+                } else if (key.getCode() == KeyCode.RIGHT) {
+                    GameScene.this.moveRight();
+                }
+                GameScene.this.sumCellNumbersToScore();
+                scoreText.setText(score + "");
+                haveEmptyCell = GameScene.this.haveEmptyCell();
+                if (haveEmptyCell == -1) {
+                    if (GameScene.this.canNotMove()) {
+                        primaryStage.setScene(endGameScene);
 
-                            EndGame.getInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
-                            root.getChildren().clear();
-                            score = 0;
-                        }
-                    } else if(haveEmptyCell == 1)
-                        GameScene.this.randomFillNumber(2);
-                });
+                        EndGame.getInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
+                        root.getChildren().clear();
+                        score = 0;
+                    }
+                } else if(haveEmptyCell == 1)
+                    GameScene.this.randomFillNumber(2);
             });
+        });
     }
 }
