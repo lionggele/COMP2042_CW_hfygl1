@@ -2,12 +2,18 @@ package com.project_2048;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import java.security.cert.PolicyNode;
 import java.util.Scanner;
 
 public class Main extends Application {
@@ -18,6 +24,7 @@ public class Main extends Application {
     private Group gameRoot = new Group();
     private Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT, Color.rgb(189, 177, 92));
     private static Scanner input= new Scanner(System.in);
+    public PolicyNode accountRoot;
 
     public void setGameScene(Scene gameScene) {
         this.gameScene = gameScene;
@@ -26,7 +33,6 @@ public class Main extends Application {
     public void setGameRoot(Group gameRoot) {
         this.gameRoot = gameRoot;
     }
-
 
     //Menu Scene
     private Group menuRoot = new Group();
@@ -55,6 +61,8 @@ public class Main extends Application {
         /*
         Group rankRoot = new Group();
         Scene rankScene = new Scene(rankRoot, WIDTH, HEIGHT, Color.rgb(250, 50, 120, 0.3));
+        */
+        // Menu ( adding )
 
         BackgroundFill background_fill = new BackgroundFill(Color.rgb(120, 100, 100), CornerRadii.EMPTY, Insets.EMPTY);
         Background background = new Background(background_fill);
@@ -68,34 +76,35 @@ public class Main extends Application {
         Rectangle backgroundOfMenuForPlay = new Rectangle(240, 140, Color.rgb(120, 20, 100, 0.2));
         backgroundOfMenuForPlay.setX(WIDTH / 2 - 120);
         backgroundOfMenuForPlay.setY(180);
-        accountRoot.getChildren().add(backgroundOfMenuForPlay);
+
+        //accountRoot.getChildren().add(backgroundOfMenuForPlay);
+
+
+        //start screen
+        /*
+        Label label1= new Label("Game Scene ");
+        Button button1= new Button("go to game ");
+
+        button1.setOnAction(e -> primaryStage.setScene(gameScene));
+        VBox layout1 = new VBox(20);
+        layout1.getChildren().addAll(label1, button1);
+        Scene scene1 = new Scene(layout1, 300, 250);
+
         */
-
-        //default colour
-        Group gameRoot = new Group();
-        setGameRoot(gameRoot);
-        Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT, Color.rgb(189, 177, 92));
-
-        setGameScene(gameScene);
-        primaryStage.setScene(gameScene);
-
-        GameScene game = new GameScene();
-        game.game(gameScene, gameRoot, primaryStage, endGameScene, endgameRoot);
-        //primaryStage.show();
-
-
-
         try{
-            Parent root = FXMLLoader.load(getClass().getResource("Scene1.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Scene2.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch(Exception e){
             e.printStackTrace();
         }
-
-
     }
+
+
+        /*
+
+         */
 
     public static void main(String[] args) {
         launch(args);
