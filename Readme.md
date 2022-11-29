@@ -27,3 +27,11 @@ Credit
 license
 
 Badge
+
+
+
+
+Changes:
+1. Scene build ( switch scene from Start Screen to game Scene )
+2. Score ( fixed )
+
