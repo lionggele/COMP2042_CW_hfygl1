@@ -16,19 +16,27 @@ import java.util.Random;
 
 public class GameScene {
     private static int HEIGHT = 700;
+
+    // the grid ( 4x4 ) , consider to rename something
     private static int n = 4;
     private final static int distanceBetweenCells = 10;
+
+    //calculating the length
     private static double LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
     private TextMaker textMaker = TextMaker.getSingleInstance();
     private Cell[][] cells = new Cell[n][n];
     private Group root;
     private long score = 0;
 
+    /*
     private enum STATE{
         MENU,
         GAME
     };
 
+     */
+
+    // setN let the user choose the mode of the game , it can be 6x6 , but the cell will be getting smaller but proportional
     static void setN(int number) {
         n = number;
         LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
@@ -38,6 +46,13 @@ public class GameScene {
         return LENGTH;
     }
 
+
+    //Only when it moves , then spawn
+
+    /**
+     * randomly generalize the number at a random cell.
+     * @param turn
+     */
     private void randomFillNumber(int turn) {
 
         Cell[][] emptyCells = new Cell[n][n];
@@ -55,8 +70,8 @@ public class GameScene {
 
                     } else {
                         aForBound=a;
-                        a++;
                         b = 0;
+                        a++;
                         if(a==n)
                             break outer;
                     }
@@ -86,6 +101,9 @@ public class GameScene {
             emptyCells[xCell][yCell].setColorByNumber(4);
         }
     }
+    /**
+     * Check the number of empty cell and also whether we already reached the end of the game til the additional of 2048
+     */
 
     private int  haveEmptyCell() {
         for (int i = 0; i < n; i++) {
@@ -98,6 +116,14 @@ public class GameScene {
         }
         return -1;
     }
+
+    /**
+     * Core of the movement
+     * @param i
+     * @param j
+     * @param direct
+     * @return
+     */
 
     private int passDestination(int i, int j, char direct) {
         int coordinate = j;
@@ -235,6 +261,13 @@ public class GameScene {
         }
     }
 
+    /**
+     *  When there are 2 same number, the cells will move, returns true.
+     * @param i
+     * @param j
+     * @return
+     */
+
     private boolean haveSameNumberNearly(int i, int j) {
         if (i < n - 1 && j < n - 1) {
             if (cells[i + 1][j].getNumber() == cells[i][j].getNumber())
@@ -244,6 +277,11 @@ public class GameScene {
         }
         return false;
     }
+
+    /**
+     * When there are not same number , it will return false and would not move.
+     * @return
+     */
 
     private boolean canNotMove() {
         for (int i = 0; i < n; i++) {
@@ -256,12 +294,19 @@ public class GameScene {
         return true;
     }
 
+    /**
+     * error
+     */
     private void sumCellNumbersToScore() {
+        /*
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                score += cells[i][j].getNumber();
+                score += cells[i][j].getNumber(); // buf from here , because it add the whole number of board on that session
             }
         }
+        */
+
+
     }
 
     public void game(Scene gameScene, Group root, Stage primaryStage, Scene endGameScene, Group endGameRoot) {
@@ -285,9 +330,11 @@ public class GameScene {
         scoreText.setFont(Font.font(20));
         scoreText.setText("0");
 
+        //randomize of the generation.
         randomFillNumber(1);
         randomFillNumber(1);
 
+        //Controls of the game
         gameScene.addEventHandler(KeyEvent.KEY_PRESSED, key ->{
             Platform.runLater(() -> {
                 int haveEmptyCell;

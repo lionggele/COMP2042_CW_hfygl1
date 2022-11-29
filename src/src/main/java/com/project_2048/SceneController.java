@@ -1,40 +1,59 @@
 package com.project_2048;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.Objects;
-import java.util.ResourceBundle;
 import java.util.Scanner;
 
-import static javafx.fxml.FXMLLoader.load;
+import static javafx.scene.paint.Color.rgb;
+
 
 public class SceneController implements initializable{
+/*
+    @FXML
+    private ComboBox myComboBox;
+
+    @FXML
+    private Label label;
+
+
+    public void initialize(){
+        ObservableList<String> list = FXCollections.observableArrayList("JavaFX","SceneBuilder","Laravel","Python");
+        myComboBox.setItems(list);
+        myComboBox.setValue("Select Colour");
+
+
+    }
+
+ */
+
+
+
+
+
     private Stage stage;
-    private Scene scene;
-    private Parent root;
-
-
     static final int WIDTH = 900;
     static final int HEIGHT = 900;
 
     //Game scheme
     private Group gameRoot = new Group();
-    private Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT, Color.rgb(189, 177, 92));
-    private static Scanner input= new Scanner(System.in);
+    private Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT, rgb(189, 177, 92));
+    private static Scanner input= new Scanner(System.in);//account
+    private Color myColour;
+    public SceneController() {
+    }
 
     public void setGameScene(Scene gameScene) {
         this.gameScene = gameScene;
@@ -44,22 +63,67 @@ public class SceneController implements initializable{
         this.gameRoot = gameRoot;
     }
     Group endgameRoot = new Group();
-    Scene endGameScene = new Scene(endgameRoot, WIDTH, HEIGHT, Color.rgb(250, 20, 100, 0.2));
-
+    Scene endGameScene = new Scene(endgameRoot, WIDTH, HEIGHT, rgb(250, 20, 100, 0.2));
 
 
     @FXML
     TextField nameTextField;
 
-    private Label label;
-
-
     @FXML
-    private ComboBox<String> myComboBox;
+    private Pane myPane;
+    @FXML
+    private ColorPicker myColorPicker;
+    BackgroundFill background_fill = new BackgroundFill(rgb(120, 100, 100), CornerRadii.EMPTY, Insets.EMPTY);
+    Background background = new Background(background_fill);
+
+    public void changeColor() {
+        Color myColor = myColorPicker.getValue();
+        //myColor.setmyColour(myColor);
+        BackgroundFill background_fill = new BackgroundFill(myColor, null, null);
+        myPane.setBackground(new Background(background_fill));
+    }
+/*
+    public void setmyColour(Color myColour){
+        this.myColour = myColour;
+    }
+
+    public Color getmyColour() {
+        return myColour;
+    }
 
 
-    private ObservableList<String> list = FXCollections.observableArrayList("red", "blue","yellow");
 
+ */
+
+
+
+
+
+    //submit button
+    public void switchToScene1(javafx.event.ActionEvent event) throws IOException {
+        stage= (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        Group gameRoot = new Group();
+        setGameRoot(gameRoot);
+
+        Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT, background_fill.getFill());
+
+
+        setGameScene(gameScene);
+
+
+        GameScene game = new GameScene();
+        game.game(gameScene, gameRoot, stage, endGameScene, endgameRoot);
+
+
+        stage.setScene(gameScene);
+        stage.show();
+    }
+
+
+
+    //private ObservableList<String> list = FXCollections.observableArrayList("red", "blue","yellow");
+    /*
     @Override
     public void initialize(URL url, ResourceBundle resources){
         System.out.println("Choice");
@@ -72,31 +136,7 @@ public class SceneController implements initializable{
         System.out.println("Choice"+ s );
         label.setText(myComboBox.getValue());
     }
-
-
-    //submit button
-    public void switchToScene1(ActionEvent event) throws IOException {
-        Parent root = load(Objects.requireNonNull(getClass().getResource("Scene1.fxml")));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        //
-        Group gameRoot = new Group();
-        setGameRoot(gameRoot);
-        Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT, Color.rgb(189, 177, 92));
-
-        setGameScene(gameScene);
-        stage.setScene(gameScene);
-
-        GameScene game = new GameScene();
-        game.game(gameScene, gameRoot, stage, endGameScene, endgameRoot);
-
-        stage.setScene(gameScene);
-        stage.show();
-
-    }
-
-
-
+     */
 
 
 

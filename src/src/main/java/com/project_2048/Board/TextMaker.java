@@ -13,12 +13,24 @@ public class TextMaker {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public static TextMaker getSingleInstance() {
         if (singleInstance == null)
             singleInstance = new TextMaker();
         return singleInstance;
     }
 
+    /**
+     * creating the Text settings, the default value/number of each set cell , the font size, local it position and the colour of the Text.
+     * @param input
+     * @param xCell
+     * @param yCell
+     * @param root
+     * @return
+     */
     public Text madeText(String input, double xCell, double yCell, Group root) {
         //??
         double length = GameScene.getLENGTH();
@@ -32,12 +44,18 @@ public class TextMaker {
         return text;
     }
 
+    /**
+     * Swapping text happen.
+     * @param first
+     * @param second
+     */
     public static void changeTwoText(Text first, Text second) {
         String temp;
         temp = first.getText();
         first.setText(second.getText());
         second.setText(temp);
 
+        //?
         double tempNumber;
 
         tempNumber = first.getX();
@@ -47,6 +65,8 @@ public class TextMaker {
         tempNumber = first.getY();
         first.setY(second.getY());
         second.setY(tempNumber);
+
+
 
     }
 

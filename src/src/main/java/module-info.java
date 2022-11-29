@@ -2,6 +2,7 @@ module com.project_2048 {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.desktop;
+    requires org.junit.jupiter.api;
 
     opens com.project_2048 to javafx.fxml;
     exports com.project_2048;

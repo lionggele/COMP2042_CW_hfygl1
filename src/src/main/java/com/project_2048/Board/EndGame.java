@@ -15,18 +15,29 @@ import javafx.stage.Stage;
 import java.util.Optional;
 
 
+
 public class EndGame {
     private static EndGame singleInstance = null;
     private EndGame(){
-
     }
+
+    /**
+     * it might be used for try again function ( only got into the EndGame method)
+     * @return
+     */
     public static EndGame getInstance(){
         if(singleInstance == null)
             singleInstance= new EndGame();
         return singleInstance;
     }
 
-    //
+    /**
+     * End Game screen, Game over wording will pop up.
+     * @param endGameScene
+     * @param root
+     * @param primaryStage
+     * @param score
+     */
     public void endGameShow(Scene endGameScene, Group root, Stage primaryStage,long score){
         Text text = new Text("GAME OVER");
         text.relocate(250,250);

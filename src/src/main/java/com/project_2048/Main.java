@@ -9,12 +9,13 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.security.cert.PolicyNode;
 import java.util.Scanner;
+
+import static javafx.scene.paint.Color.rgb;
 
 public class Main extends Application {
     static final int WIDTH = 900;
@@ -22,7 +23,7 @@ public class Main extends Application {
 
     //Game scheme
     private Group gameRoot = new Group();
-    private Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT, Color.rgb(189, 177, 92));
+    private Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT, rgb(189, 177, 92));
     private static Scanner input= new Scanner(System.in);
     public PolicyNode accountRoot;
 
@@ -57,23 +58,23 @@ public class Main extends Application {
         Scene getAccountScene = new Scene(getAccountRoot, WIDTH, HEIGHT, Color.rgb(200, 20, 100, 0.2));
         */
         Group endgameRoot = new Group();
-        Scene endGameScene = new Scene(endgameRoot, WIDTH, HEIGHT, Color.rgb(250, 20, 100, 0.2));
+        Scene endGameScene = new Scene(endgameRoot, WIDTH, HEIGHT, rgb(250, 20, 100, 0.2));
         /*
         Group rankRoot = new Group();
         Scene rankScene = new Scene(rankRoot, WIDTH, HEIGHT, Color.rgb(250, 50, 120, 0.3));
         */
         // Menu ( adding )
 
-        BackgroundFill background_fill = new BackgroundFill(Color.rgb(120, 100, 100), CornerRadii.EMPTY, Insets.EMPTY);
+        BackgroundFill background_fill = new BackgroundFill(rgb(120, 100, 100), CornerRadii.EMPTY, Insets.EMPTY);
         Background background = new Background(background_fill);
 
         // Menu ( adding )
-        Rectangle backgroundOfMenu = new Rectangle(240, 120, Color.rgb(120, 120, 120, 0.2));
+        Rectangle backgroundOfMenu = new Rectangle(240, 120, rgb(120, 120, 120, 0.2));
         backgroundOfMenu.setX(WIDTH / 2 - 120);
         backgroundOfMenu.setY(180);
         menuRoot.getChildren().add(backgroundOfMenu);
 
-        Rectangle backgroundOfMenuForPlay = new Rectangle(240, 140, Color.rgb(120, 20, 100, 0.2));
+        Rectangle backgroundOfMenuForPlay = new Rectangle(240, 140, rgb(120, 20, 100, 0.2));
         backgroundOfMenuForPlay.setX(WIDTH / 2 - 120);
         backgroundOfMenuForPlay.setY(180);
 

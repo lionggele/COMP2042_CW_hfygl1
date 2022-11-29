@@ -19,6 +19,15 @@ public class Cell {
         return modify;
     }
 
+
+    /**
+     * Cells, constructor is to create the 4 x 4 empty boxes.
+     * @param x = width of the small individual box
+     * @param y = height of the small individual box
+     * @param scale =
+     * @param root = stage and scene to get the root
+     */
+
     public Cell(double x, double y, double scale, Group root) {
         rectangle = new Rectangle();
         rectangle.setX(x);
@@ -32,30 +41,49 @@ public class Cell {
         root.getChildren().add(rectangle);
     }
 
+    /**
+     * setTextClass set the text(number) for the start of the game (randomise) )
+      */
+
     public void setTextClass(Text textClass) {
         this.textClass = textClass;
     }
 
-    public void changeCell(Cell cell) {
-        TextMaker.changeTwoText(textClass, cell.getTextClass());
-        root.getChildren().remove(cell.getTextClass());
-        root.getChildren().remove(textClass);
+    /**
+     * Change the appearance number in each of the box
+     * @param cell
+     * changing the cell by using the control in "GameScene.java"
+     * it will update the numbering (value) of the cell and also the colour using the setcolourNumber()
+     */
 
+    public void changeCell(Cell cell) {
+        //changing text
+        TextMaker.changeTwoText(textClass, cell.getTextClass());
+
+        root.getChildren().remove(cell.getTextClass()); // remove the changed position number
+        root.getChildren().remove(textClass); // remove the original position number
+
+        // set the new changed Number(test) when
         if (!cell.getTextClass().getText().equals("0")) {
             root.getChildren().add(cell.getTextClass());
         }
+
         if (!textClass.getText().equals("0")) {
             root.getChildren().add(textClass);
         }
+
         setColorByNumber(getNumber());
         cell.setColorByNumber(cell.getNumber());
     }
 
-    //check this
+    /**
+     *
+     * @param number , set the number towards the colour code.
+     */
     public void setColorByNumber(int number) {
         switch (number) {
             case 0:
-                rectangle.setFill(Color.rgb(224, 226, 226, 0.5));
+                rectangle.setFill(Color.rgb(227, 226, 226, 0.5));
                 break;
             case 2:
                 rectangle.setFill(Color.rgb(232, 255, 100, 0.5));
@@ -94,15 +122,21 @@ public class Cell {
         }
     }
 
-    //need to understand more
+    /**
+     * addition happen over here. Add the 2 value which is valid to be added
+     */
     public void adder(Cell cell) {
         cell.getTextClass().setText((cell.getNumber() + this.getNumber()) + "");
-        textClass.setText("0");
+        textClass.setText("0");  // to make sure the number become 0 and then the colour will be changed.
         root.getChildren().remove(textClass);
 
         // result of addition
         cell.setColorByNumber(cell.getNumber());
         setColorByNumber(getNumber());
+
+        //temp
+
+
     }
 
     public double getX() {
