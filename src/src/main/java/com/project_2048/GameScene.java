@@ -305,7 +305,8 @@ public class GameScene {
             }
         }
         */
-
+        score += Cell.scores;
+        Cell.scores = 0;
 
     }
 

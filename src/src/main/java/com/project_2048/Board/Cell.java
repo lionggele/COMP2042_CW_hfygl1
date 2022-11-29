@@ -6,6 +6,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 public class Cell {
+    public static long scores;
     public Rectangle rectangle;
     private Group root;
     private Text textClass;
@@ -135,6 +136,7 @@ public class Cell {
         setColorByNumber(getNumber());
 
         //temp
+        scores = cell.getNumber() + this.getNumber();
 
 
     }
