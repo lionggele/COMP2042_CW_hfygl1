@@ -207,6 +207,7 @@ public class GameScene {
             }
             for (int i = 0; i < n; i++) {
                 cells[i][j].setModify(false);
+
             }
         }
 
@@ -271,8 +272,6 @@ public class GameScene {
     private boolean haveSameNumberNearly(int i, int j) {
         if (i < n - 1 && j < n - 1) {
             if (cells[i + 1][j].getNumber() == cells[i][j].getNumber())
-                return true;
-            if (cells[i][j + 1].getNumber() == cells[i][j].getNumber())
                 return true;
         }
         return false;
@@ -359,7 +358,7 @@ public class GameScene {
                         root.getChildren().clear();
                         score = 0;
                     }
-                } else if(haveEmptyCell == 1)
+                } else if(haveEmptyCell == 1 && canNotMove() == false )
                     GameScene.this.randomFillNumber(2);
             });
         });
