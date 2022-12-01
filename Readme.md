@@ -27,3 +27,30 @@ Credit
 license
 
 Badge
+
+
+
+
+Changes:
+1. Scene build ( switch scene from Start Screen to game Scene )
+2. Score ( fixed )
+
+
+
+
+
+
+Bugs:
+1. spawn a random cell when it does not move 
+2. close button when end of the scene 
+3. When 2 sets of same cells move horizontally, it only changeCell for the nearest to the edge.
+
+
+need to do:
+1. saccount name: 
+2. high score:
+3. difficulty:
+4. colour set for scheme:
+5. reach 2048 pop up screen for continue playing 
+
+
