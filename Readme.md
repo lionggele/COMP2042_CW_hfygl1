@@ -34,6 +34,8 @@ Badge
 Changes:
 1. Scene build ( switch scene from Start Screen to game Scene )
 2. Score ( fixed )
+3. game scene Colour changing.
+4.
 
 
 
