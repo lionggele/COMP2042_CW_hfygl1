@@ -35,7 +35,8 @@ Changes:
 1. Scene build ( switch scene from Start Screen to game Scene )
 2. Score ( fixed )
 3. game scene Colour changing.
-4.
+4. Victory and Defeat Scene , End Game Scene is created 
+5.
 
 
 
@@ -44,7 +45,6 @@ Changes:
 
 Bugs:
 1. spawn a random cell when it does not move 
-2. close button when end of the scene 
 3. When 2 sets of same cells move horizontally, it only changeCell for the nearest to the edge.
 
 
