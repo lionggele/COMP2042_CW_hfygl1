@@ -1,12 +1,14 @@
 package com.project_2048;
+
 import com.project_2048.Board.Cell;
-import com.project_2048.Board.EndGame;
 import com.project_2048.Board.TextMaker;
 import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -28,13 +30,8 @@ public class GameScene {
     private Group root;
     private long score = 0;
 
-    /*
-    private enum STATE{
-        MENU,
-        GAME
-    };
 
-     */
+
 
     // setN let the user choose the mode of the game , it can be 6x6 , but the cell will be getting smaller but proportional
     static void setN(int number) {
@@ -352,13 +349,24 @@ public class GameScene {
                 haveEmptyCell = GameScene.this.haveEmptyCell();
                 if (haveEmptyCell == -1) {
                     if (GameScene.this.canNotMove()) {
-                        primaryStage.setScene(endGameScene);
+                        try{
+                            Pane pane = FXMLLoader.load(getClass().getResource("Victory_Defeat.fxml"));
+                            primaryStage.setScene(new Scene(pane));
+                            primaryStage.show();
 
-                        EndGame.getInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
+                        } catch(Exception e){
+                            e.printStackTrace();
+                        }
+
+                        //primaryStage.setScene(endGameScene);
+
+                        //primaryStage.setScene(endGameScene);
+
+                        //EndGame.getInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
                         root.getChildren().clear();
                         score = 0;
                     }
-                } else if(haveEmptyCell == 1 && canNotMove() == false )
+                } else if(haveEmptyCell == 1 )
                     GameScene.this.randomFillNumber(2);
             });
         });

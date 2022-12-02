@@ -39,7 +39,6 @@ public class SceneController implements initializable{
 
     public SetGetColour changeColor() {
         Color Colour = myColorPicker.getValue();
-
         SetGetColour mycolour = new SetGetColour();
         mycolour.setMyColour(Colour);
         BackgroundFill background_fill = new BackgroundFill(Colour, null, null);
@@ -60,17 +59,10 @@ public class SceneController implements initializable{
 
         Group gameRoot = new Group();
         setGameRoot(gameRoot);
-
         Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT, Paint.valueOf(colour));
-
-
         setGameScene(gameScene);
-
-
         GameScene game = new GameScene();
         game.game(gameScene, gameRoot, stage, endGameScene, endgameRoot);
-
-
         stage.setScene(gameScene);
         stage.show();
     }
@@ -83,9 +75,10 @@ public class SceneController implements initializable{
         this.gameRoot = gameRoot;
     }
 
-    class SetGetColour{
+    class SetGetColour {
         private String myColour;
-        public void setMyColour(Color myColour){
+
+        public void setMyColour(Color myColour) {
             this.myColour = String.valueOf(myColour);
         }
 
@@ -95,3 +88,4 @@ public class SceneController implements initializable{
 
     }
 }
+

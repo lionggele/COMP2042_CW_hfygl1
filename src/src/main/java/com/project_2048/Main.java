@@ -2,13 +2,9 @@ package com.project_2048;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
@@ -63,10 +59,7 @@ public class Main extends Application {
         Group rankRoot = new Group();
         Scene rankScene = new Scene(rankRoot, WIDTH, HEIGHT, Color.rgb(250, 50, 120, 0.3));
         */
-        // Menu ( adding )
 
-        BackgroundFill background_fill = new BackgroundFill(rgb(120, 100, 100), CornerRadii.EMPTY, Insets.EMPTY);
-        Background background = new Background(background_fill);
 
         // Menu ( adding )
         Rectangle backgroundOfMenu = new Rectangle(240, 120, rgb(120, 120, 120, 0.2));
@@ -101,12 +94,6 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
-
-
-        /*
-
-         */
-
     public static void main(String[] args) {
         launch(args);
     }
