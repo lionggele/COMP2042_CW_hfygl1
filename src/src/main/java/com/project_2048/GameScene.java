@@ -30,6 +30,8 @@ public class GameScene {
     private Group root;
     private long score = 0;
 
+    private long Objectscore;
+
 
 
 
@@ -358,19 +360,53 @@ public class GameScene {
                             e.printStackTrace();
                         }
 
-                        //primaryStage.setScene(endGameScene);
+                        EndGameController Objectscore = new EndGameController();
 
-                        //primaryStage.setScene(endGameScene);
+                        //SetGetScore scores = new SetGetScore();
+                        //scores.setScore(score);
+                        Objectscore.setScore(score);
 
-                        //EndGame.getInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
-                        root.getChildren().clear();
-                        score = 0;
+
+
                     }
                 } else if(haveEmptyCell == 1 )
                     GameScene.this.randomFillNumber(2);
             });
         });
     }
+    /*
+    public static class SetGetScore {
+        private String score;
+
+        public void setScore (long score) {
+            this.score = String.valueOf(score);
+        }
+
+        String getScore() {
+            return score;
+        }
+
+    }
+    */
+
+
 }
+
+/*
+    public class SetGetScore {
+        private String score;
+
+        public void setScore (long score) {
+            this.score = String.valueOf(score);
+        }
+
+        String getScore() {
+            return score;
+        }
+
+    }
+ */
+
+
 
 

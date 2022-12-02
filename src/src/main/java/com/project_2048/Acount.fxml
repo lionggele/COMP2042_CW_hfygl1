@@ -5,17 +5,15 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.TextFlow?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project_2048.AccountController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project_2048.EndGameController">
    <children>
-      <Label layoutX="172.0" layoutY="14.0" text="Your Score is: ">
+      <Label layoutX="202.0" layoutY="14.0" text="Your Score is: ">
          <font>
             <Font size="29.0" />
          </font>
       </Label>
-      <TextFlow fx:id="score" layoutX="149.0" layoutY="57.0" prefHeight="43.0" prefWidth="286.0" />
       <Label layoutX="224.0" layoutY="187.0" text="Username:">
          <font>
             <Font size="29.0" />
@@ -31,5 +29,10 @@
             <Font size="20.0" />
          </font>
       </Button>
+      <Label fx:id="myScores" layoutX="239.0" layoutY="88.0" prefHeight="55.0" prefWidth="89.0" text="Score">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

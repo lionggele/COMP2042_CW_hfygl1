@@ -37,16 +37,6 @@ public class SceneController implements initializable{
     @FXML
     private ColorPicker myColorPicker;
 
-    public SetGetColour changeColor() {
-        Color Colour = myColorPicker.getValue();
-        SetGetColour mycolour = new SetGetColour();
-        mycolour.setMyColour(Colour);
-        BackgroundFill background_fill = new BackgroundFill(Colour, null, null);
-        myPane.setBackground(new Background(background_fill));
-        return mycolour;
-    }
-
-
 
     //submit button
     public void switchToScene1(javafx.event.ActionEvent event) {
@@ -55,7 +45,7 @@ public class SceneController implements initializable{
         back = changeColor();
         String colour = back.getMyColour();
 
-        stage= (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         Group gameRoot = new Group();
         setGameRoot(gameRoot);
@@ -66,6 +56,16 @@ public class SceneController implements initializable{
         stage.setScene(gameScene);
         stage.show();
     }
+
+    public SetGetColour changeColor() {
+        Color Colour = myColorPicker.getValue();
+        SetGetColour mycolour = new SetGetColour();
+        mycolour.setMyColour(Colour);
+        BackgroundFill background_fill = new BackgroundFill(Colour, null, null);
+        myPane.setBackground(new Background(background_fill));
+        return mycolour;
+    }
+
 
     public void setGameScene(Scene gameScene) {
         this.gameScene = gameScene;

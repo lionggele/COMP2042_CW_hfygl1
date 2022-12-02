@@ -3,25 +3,33 @@ package com.project_2048;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Victory_DefeatController {
+    private Stage stage;
+    private Parent root;
+    private Scene scene;
+    @FXML
+    private long score;
+    private String tmpscore;
+
 
     @FXML
-    private Button score;
+    public void scoreButton(ActionEvent event) throws IOException {
 
-    @FXML
-    void scoreButton(ActionEvent event) {
-        try{
-            Parent root = FXMLLoader.load(getClass().getResource("Scene2.fxml"));
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch(Exception e){
-            e.printStackTrace();
-        }
+
+        root = FXMLLoader.load(getClass().getResource("EndGame.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+
 
     }
 

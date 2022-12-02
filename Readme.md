@@ -47,7 +47,7 @@ Bugs:
 
 
 need to do:
-1. saccount name: 
+1. account name: 
 2. high score:
 3. difficulty:
 4. colour set for scheme:
