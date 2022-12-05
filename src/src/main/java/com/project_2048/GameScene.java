@@ -32,11 +32,13 @@ public class GameScene {
 
     private long Objectscore;
 
+    private boolean ismoveable = true;
+
 
 
 
     // setN let the user choose the mode of the game , it can be 6x6 , but the cell will be getting smaller but proportional
-    static void setN(int number) {
+    public static void setN(int number) {
         n = number;
         LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
     }
@@ -44,6 +46,8 @@ public class GameScene {
     public static double getLENGTH() {
         return LENGTH;
     }
+
+
 
 
     //Only when it moves , then spawn
@@ -79,7 +83,6 @@ public class GameScene {
         }
 
 
-
         Text text;
         Random random = new Random();
         boolean putTwo = true;
@@ -100,6 +103,8 @@ public class GameScene {
             emptyCells[xCell][yCell].setColorByNumber(4);
         }
     }
+
+
     /**
      * Check the number of empty cell and also whether we already reached the end of the game til the additional of 2048
      */
@@ -345,6 +350,9 @@ public class GameScene {
                     GameScene.this.moveLeft();
                 } else if (key.getCode() == KeyCode.RIGHT) {
                     GameScene.this.moveRight();
+                } else {
+                    ismoveable = false;
+                    System.out.println("error");
                 }
                 GameScene.this.sumCellNumbersToScore();
                 scoreText.setText(score + "");
@@ -361,51 +369,16 @@ public class GameScene {
                         }
 
                         EndGameController Objectscore = new EndGameController();
-
-                        //SetGetScore scores = new SetGetScore();
-                        //scores.setScore(score);
                         Objectscore.setScore(score);
-
-
-
                     }
-                } else if(haveEmptyCell == 1 )
+                } else if(haveEmptyCell == 1 && ismoveable == true)
                     GameScene.this.randomFillNumber(2);
+                    ismoveable = true;
             });
         });
     }
-    /*
-    public static class SetGetScore {
-        private String score;
-
-        public void setScore (long score) {
-            this.score = String.valueOf(score);
-        }
-
-        String getScore() {
-            return score;
-        }
-
-    }
-    */
-
-
 }
 
-/*
-    public class SetGetScore {
-        private String score;
-
-        public void setScore (long score) {
-            this.score = String.valueOf(score);
-        }
-
-        String getScore() {
-            return score;
-        }
-
-    }
- */
 
 
 

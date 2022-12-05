@@ -16,7 +16,7 @@
             <Font size="49.0" />
          </font>
       </Label>
-      <Button layoutX="253.0" layoutY="295.0" mnemonicParsing="false" onAction="#switchToScene1" text="Start ">
+      <Button layoutX="254.0" layoutY="309.0" mnemonicParsing="false" onAction="#switchToScene1" text="Start ">
          <font>
             <Font size="20.0" />
          </font>
@@ -25,9 +25,14 @@
          <value>
             <Color red="0.590624988079071" green="0.1875" blue="0.75" />
          </value></ColorPicker>
-      <CheckBox layoutX="128.0" layoutY="241.0" mnemonicParsing="false" text="4x4" />
-      <CheckBox layoutX="259.0" layoutY="241.0" mnemonicParsing="false" text="5x5" />
-      <CheckBox layoutX="405.0" layoutY="241.0" mnemonicParsing="false" text="6x6" />
+      <CheckBox fx:id="CheckBox1" layoutX="133.0" layoutY="258.0" mnemonicParsing="false" onAction="#changeGrid4x4" text="4x4" />
+      <CheckBox fx:id="CheckBox2" layoutX="270.0" layoutY="258.0" mnemonicParsing="false" onAction="#changeGrid5x5" text="5x5" />
+      <CheckBox fx:id="CheckBox3" layoutX="408.0" layoutY="258.0" mnemonicParsing="false" onAction="#changeGrid6x6" text="6x6" />
+      <Label fx:id="GridLabel" layoutX="238.0" layoutY="176.0" prefHeight="63.0" prefWidth="115.0" text=" GRID">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
    </children>
    <opaqueInsets>
       <Insets />

@@ -1,10 +1,13 @@
 package com.project_2048;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
@@ -32,10 +35,29 @@ public class SceneController implements initializable{
     Group endgameRoot = new Group();
     Scene endGameScene = new Scene(endgameRoot, WIDTH, HEIGHT, rgb(250, 20, 100, 0.2));
 
+    private static double n;
+    private final static int distanceBetweenCells = 10;
+    private static double LENGTH = HEIGHT / (double) n - ((n + 1) * distanceBetweenCells) / (double) n;
+
+    private int num;
+
     @FXML
     private Pane myPane;
     @FXML
     private ColorPicker myColorPicker;
+
+    @FXML
+    private CheckBox CheckBox1;
+
+    @FXML
+    private CheckBox CheckBox2;
+
+    @FXML
+    private CheckBox CheckBox3;
+
+    @FXML
+    private Label GridLabel;
+
 
 
     //submit button
@@ -75,6 +97,7 @@ public class SceneController implements initializable{
         this.gameRoot = gameRoot;
     }
 
+
     class SetGetColour {
         private String myColour;
 
@@ -87,5 +110,44 @@ public class SceneController implements initializable{
         }
 
     }
+
+
+
+    @FXML
+    public void changeGrid4x4(javafx.event.ActionEvent event) {
+        if (CheckBox1.isSelected()){
+            GridLabel.setText("4x4");
+            GameScene num = new GameScene();
+            num.setN(4);
+
+        }
+
+    }
+
+    @FXML
+    public void changeGrid5x5(javafx.event.ActionEvent event){
+        if (CheckBox2.isSelected()){
+            GridLabel.setText("5x5");
+            GameScene num = new GameScene();
+            num.setN(5);
+        }
+    }
+
+    @FXML
+    void changeGrid6x6(ActionEvent event) {
+        if (CheckBox3.isSelected()){
+            GridLabel.setText("6x6");
+            GameScene num = new GameScene();
+            num.setN(6);
+
+        }
+    }
+
+
+
+
+
+
+
 }
 

@@ -1,5 +1,6 @@
 package com.project_2048.Board;
 
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -66,7 +67,7 @@ public class EndGame {
 
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK){
-                    root.getChildren().clear();
+                    Platform.exit();
                 }
             }
         });

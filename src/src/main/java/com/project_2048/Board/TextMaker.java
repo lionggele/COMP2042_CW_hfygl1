@@ -39,7 +39,7 @@ public class TextMaker {
 
         Text text = new Text(input);
         text.setFont(Font.font(fontSize));
-        text.relocate((xCell + (1.2)* length / 7.0), (yCell + 2 * length / 7.0));
+        text.relocate((xCell + (0.5)* length / 7.0), (yCell + 2 * length / 7.0));
         text.setFill(Color.WHITE);
         return text;
     }

@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #EE8433;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project_2048.Victory_DefeatController">
    <children>
       <Label alignment="CENTER" contentDisplay="TOP" layoutX="25.0" prefHeight="281.0" prefWidth="551.0" style="-fx-font-weight: bold;" text="GAME OVER" textFill="#fffefe">
