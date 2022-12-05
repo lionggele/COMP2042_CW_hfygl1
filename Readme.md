@@ -36,7 +36,7 @@ Changes:
 2. Score ( fixed )
 3. game scene Colour changing.
 4. Victory and Defeat Scene , End Game Scene is created 
-5.
+5. Create difficulty 
 
 
 
@@ -51,8 +51,6 @@ Bugs:
 need to do:
 1. account name: 
 2. high score:
-3. difficulty:
-4. colour set for scheme:
-5. reach 2048 pop up screen for continue playing 
+5. reach 2048 pop up screen for continue playing.
 
 
