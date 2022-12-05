@@ -28,13 +28,14 @@ public class GameScene {
     private TextMaker textMaker = TextMaker.getSingleInstance();
     private Cell[][] cells = new Cell[n][n];
     private Group root;
-    private long score = 0;
-
-    private long Objectscore;
-
+    private static long score;
     private boolean ismoveable = true;
 
 
+    // get the score from the game scene and then display it at the end game.fxml
+    public static long getScore(){
+        return score;
+    }
 
 
     // setN let the user choose the mode of the game , it can be 6x6 , but the cell will be getting smaller but proportional
@@ -51,7 +52,6 @@ public class GameScene {
 
 
     //Only when it moves , then spawn
-
     /**
      * randomly generalize the number at a random cell.
      * @param turn
@@ -339,7 +339,7 @@ public class GameScene {
         randomFillNumber(1);
 
         //Controls of the game
-        gameScene.addEventHandler(KeyEvent.KEY_PRESSED, key ->{
+        gameScene.addEventHandler(KeyEvent.KEY_PRESSED, key -> {
             Platform.runLater(() -> {
                 int haveEmptyCell;
                 if (key.getCode() == KeyCode.DOWN) {
@@ -359,24 +359,27 @@ public class GameScene {
                 haveEmptyCell = GameScene.this.haveEmptyCell();
                 if (haveEmptyCell == -1) {
                     if (GameScene.this.canNotMove()) {
-                        try{
+                        try {
                             Pane pane = FXMLLoader.load(getClass().getResource("Victory_Defeat.fxml"));
                             primaryStage.setScene(new Scene(pane));
                             primaryStage.show();
 
-                        } catch(Exception e){
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
+                        System.out.println(score);
 
-                        EndGameController Objectscore = new EndGameController();
-                        Objectscore.setScore(score);
+
+
                     }
-                } else if(haveEmptyCell == 1 && ismoveable == true)
+                } else if (haveEmptyCell == 1 && ismoveable == true)
                     GameScene.this.randomFillNumber(2);
-                    ismoveable = true;
+                ismoveable = true;
             });
         });
     }
+
+
 }
 
 

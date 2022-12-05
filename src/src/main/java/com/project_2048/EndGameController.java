@@ -14,30 +14,15 @@ public class EndGameController implements initializable {
     private Label myScores;
 
 
-    private long score;
-
-    private long tmpscore;
 
     @FXML
     void nextScene(ActionEvent event) {
 
     }
 
-    public void setScore(long score) {
-        this.score = score;
-        System.out.println("Test1" + score);
-    }
-
-
     public void initialize(){
-        String a = String.valueOf(score);
+        int num = (int) GameScene.getScore();
+        String a = String.valueOf(num);
         myScores.setText(a);
-        System.out.println("Test3" + a);
-
     }
-
-
-
-
-
 }
