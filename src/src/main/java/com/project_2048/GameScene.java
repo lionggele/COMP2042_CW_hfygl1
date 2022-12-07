@@ -28,7 +28,7 @@ public class GameScene {
     private TextMaker textMaker = TextMaker.getSingleInstance();
     private Cell[][] cells = new Cell[n][n];
     private Group root;
-    private static long score;
+    static long score;
     private boolean ismoveable = true;
 
 

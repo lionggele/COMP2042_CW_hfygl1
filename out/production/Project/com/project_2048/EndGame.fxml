@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project_2048.EndGameController">
    <children>
       <Label layoutX="202.0" layoutY="14.0" text="Your Score is: ">
@@ -19,7 +18,7 @@
             <Font size="29.0" />
          </font>
       </Label>
-      <TextField layoutX="176.0" layoutY="230.0" prefHeight="43.0" prefWidth="233.0" promptText="Enter Username">
+      <TextField fx:id="Username" layoutX="187.0" layoutY="239.0" promptText="Enter Username" text="Enter Username">
          <font>
             <Font size="20.0" />
          </font>
