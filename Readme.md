@@ -37,6 +37,7 @@ Changes:
 3. game scene Colour changing.
 4. Victory and Defeat Scene , End Game Scene is created 
 5. Create difficulty 
+6. load and save score on score board into file
 
 
 
