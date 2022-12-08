@@ -32,7 +32,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="exitgame" layoutX="496.0" layoutY="340.0" mnemonicParsing="false" text="Quit">
+      <Button fx:id="exitgame" layoutX="496.0" layoutY="340.0" mnemonicParsing="false"  text="Quit">
          <font>
             <Font size="20.0" />
          </font>

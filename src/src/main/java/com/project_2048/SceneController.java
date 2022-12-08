@@ -20,7 +20,7 @@ import java.util.Scanner;
 import static javafx.scene.paint.Color.rgb;
 
 
-public class SceneController implements initializable{
+public class SceneController implements initializable {
     private Stage stage;
     static final int WIDTH = 900;
     static final int HEIGHT = 900;

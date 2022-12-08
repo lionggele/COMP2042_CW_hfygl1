@@ -4,13 +4,7 @@ package com.project_2048;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.Scanner;
 
 public class ScoreBoardController {
 
@@ -18,33 +12,16 @@ public class ScoreBoardController {
     private String highscore = "";
     @FXML
     private Button exitgame;
-
     @FXML
     private Label myScore4;
 
-    @FXML
-    private TextArea textarea4;
-
-    @FXML
-    private TextArea textarea5;
+}
 
 
 
-    public void saveData(File file, String content){
-        try{
-            PrintWriter printWriter = new PrintWriter(filechooser.getInitialDirectory());
-            printWriter.write(content);
-            printWriter.close();
 
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-
-
-
-    public void initialize(){
+/*
+    public void iniialize(){
 
         String username = EndGameController.getUsername();
         System.out.println(username);
@@ -59,32 +36,44 @@ public class ScoreBoardController {
 
         filechooser.setInitialDirectory(new File("D:\\Code 3 (Y2S1)\\Software Maintainance (COMP2042)\\Project\\src\\src\\main\\java\\com\\project_2048\\highscores.txt"));
 
-        try{
+        try {
             Scanner scanner = new Scanner(filechooser.getInitialDirectory());
-            while(scanner.hasNextLine()){
+            while (scanner.hasNextLine()) {
 
-                    textarea4.appendText(scanner.nextLine() + "\n");
-                    textarea4.appendText(highscore);
-                //}
+                mytextarea4.appendText(scanner.nextLine() + "\n");
+
             }
-        } catch (FileNotFoundException e ){
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
-
-        if(filechooser.getInitialDirectory() != null){
-            saveData(filechooser.getInitialDirectory(),highscore);
         }
 
 
 
     }
+
+ */
+
 /*
     int getHighScore(int num){
         return num;
     }
 */
 
+    //textarea4.appendText(highscore);
+                    /*
+                if(scanner.hasNextLine() == true){
+                    if(num >Integer.parseInt(scanner.nextLine().split(":")[1])) {
+                        //textarea4.clear();
+                        System.out.println("num"+ num);
+                        System.out.println("compared"+Integer.parseInt(scanner.nextLine().split(":")[1]));
+                        textarea4.appendText("abc");
+                    }
+
+                }
+                else {
+                    //
+                    }
+                     */
 
 
 
-}
