@@ -37,20 +37,21 @@ Changes:
 3. game scene Colour changing.
 4. Victory and Defeat Scene , End Game Scene is created 
 5. Create difficulty 
+6. load and save score on score board into file
+7. Bugs: spawn a random cell when it does not move (fixed)
 
 
 
 
 
 
-Bugs:
-1. spawn a random cell when it does not move 
+Bugs: 
 3. When 2 sets of same cells move horizontally, it only changeCell for the nearest to the edge.
 
 
 need to do:
-1. account name: 
-2. high score:
+2. high score:( logic )
 5. reach 2048 pop up screen for continue playing.
+6. save logic without the file. 
 
 
