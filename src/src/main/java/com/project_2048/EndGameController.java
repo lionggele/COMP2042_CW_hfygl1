@@ -16,6 +16,8 @@ import java.util.Scanner;
 
 public class EndGameController implements initializable {
 
+    static File f;
+    static File files;
     @FXML
     private Button highScore;
 
@@ -48,6 +50,12 @@ public class EndGameController implements initializable {
     public String highscore;
     private String a;
 
+    File file4x4 = new File("HighScore4x4.txt");
+    File file5x5 = new File("HighScore5x5.txt");
+    File file6x6 = new File("HighScore6x6.txt");
+
+
+
     @FXML
     public void nextScene(ActionEvent event){
         int num = (int) GameScene.getScore();
@@ -55,9 +63,19 @@ public class EndGameController implements initializable {
         String a = String.valueOf(num);
         String username = Username.getText();
         highscore = username + ":" + a;
-        mytextarea4.appendText(highscore);
 
+        File fs = getMyfile(f);
 
+        if (fs.compareTo(file4x4) == 0){
+            mytextarea4.appendText(highscore);
+
+        } else if (fs.compareTo(file5x5) == 0){
+            mytextarea5.appendText(highscore);
+
+        } else if (fs.compareTo(file6x6) == 0){
+            mytextarea6.appendText(highscore);
+
+        }
     }
     public void initialize(){
         int num = (int) GameScene.getScore();
@@ -65,14 +83,28 @@ public class EndGameController implements initializable {
         myScores.setText(a);
 
         filechooser.setInitialDirectory(new File("D:\\Code 3 (Y2S1)\\Software Maintainance (COMP2042)\\Project\\src\\src\\main\\java\\com\\project_2048\\HighScore"));
-        File file = filechooser.showOpenDialog(new Stage());
-        File selectedfile = file.getAbsoluteFile();
+        files = filechooser.showOpenDialog(new Stage());
+
 
         try {
-            Scanner scanner = new Scanner(file);
-            while (scanner.hasNextLine()) {
-                mytextarea4.appendText(scanner.nextLine() + "\n");
+            Scanner scanner = new Scanner(files);
+
+            f = new File(files.getAbsolutePath().substring(files.getAbsolutePath().lastIndexOf("\\")+1));
+            if (f.compareTo(file4x4) == 0){
+                while (scanner.hasNextLine()) {
+                    mytextarea4.appendText(scanner.nextLine() + "\n");
+
+                }
+            } else if (f.compareTo(file5x5) == 0){
+                while (scanner.hasNextLine()) {
+                    mytextarea5.appendText(scanner.nextLine() + "\n");
+                }
+            } else if (f.compareTo(file6x6) == 0){
+                while (scanner.hasNextLine()) {
+                    mytextarea6.appendText(scanner.nextLine() + "\n");
+                }
             }
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -80,10 +112,16 @@ public class EndGameController implements initializable {
 
     @FXML
     void save(ActionEvent event) {
-        File file = filechooser.showSaveDialog(new Stage());
-        if (file != null) {
-            saveData(file, highscore);
+        if( f != null) {
+            if (f.compareTo(file4x4) == 0) {
+                saveData(files, mytextarea4.getText());
+            } else if (f.compareTo(file5x5) == 0) {
+                saveData(files, mytextarea5.getText());
+            } else if (f.compareTo(file6x6) == 0) {
+                saveData(files, mytextarea6.getText());
+            }
         }
+
     }
 
     public void saveData(File file, String highscore) {
@@ -98,20 +136,9 @@ public class EndGameController implements initializable {
 
     }
 
-
-
-
-
-
-
-/*
-    public void saveUsername(javafx.event.ActionEvent event) {
-        File file = filechooser.showSaveDialog(new Stage());
-        if (file != null) {
-            saveData(file, highscore);
-        }
-
+    public static File getMyfile(File f){
+        return EndGameController.f;
     }
 
- */
+
 }

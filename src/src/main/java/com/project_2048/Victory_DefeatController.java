@@ -16,8 +16,6 @@ public class Victory_DefeatController {
     private Scene scene;
     @FXML
     private long score;
-    private String tmpscore;
-
 
     @FXML
     public void scoreButton(ActionEvent event) throws IOException {
