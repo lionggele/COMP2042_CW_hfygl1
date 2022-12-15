@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #dbc5bd;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project_2048.FXML.VictoryController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #dbc5bd;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project_2048.Controller.VictoryController">
    <children>
       <Label fx:id="mylabel" alignment="CENTER" contentDisplay="TOP" layoutX="35.0" layoutY="10.0" prefHeight="281.0" prefWidth="551.0" style="-fx-font-weight: bold;" text="Congratulations" textFill="#90766b">
          <font>

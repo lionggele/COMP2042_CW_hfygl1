@@ -1,1 +1,0 @@
-typeSearchIndex = [{"p":"com.example.demo","l":"Account"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.example.demo","l":"Application"},{"p":"com.example.demo","l":"Cell"},{"p":"com.example.demo","l":"Controller"},{"p":"com.example.demo","l":"EndGame"},{"p":"com.example.demo","l":"Main"}];updateSearchResults();

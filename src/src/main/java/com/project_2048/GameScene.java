@@ -14,44 +14,59 @@ import javafx.stage.Stage;
 import java.util.Random;
 
 
+/**
+ * Game Scene is the main method which consist the logic of the game.
+ */
+
 public class GameScene {
     private static int HEIGHT = 700;
 
-    // the grid ( 4x4 ) , consider to rename something
+    // the grid ( 4x4 )
     private static int n = 4;
     private final static int distanceBetweenCells = 10;
-
     //calculating the length
     private static double LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
+
+    // only can have one textMaker class that can have only one object (an instance of the class) at a time.
     private TextMaker textMaker = TextMaker.getSingleInstance();
+
+    // Cells Array
     private static Cell[][] cells = new Cell[n][n];
     private Group root;
+
+    // Variable for the score
     static long score;
+
+    // boolean to check whether the Cell is moved
     private boolean ismoveable = true;
 
-
-    // get the score from the game scene and then display it at the end game.fxml
+    /**
+     * get the score from the game scene and then display it at the end game.fxml
+      */
     public static long getScore(){
         return score;
     }
 
-
-    // setN let the user choose the mode of the game , it can be 6x6 , but the cell will be getting smaller but proportional
+    /**
+     * setN let the user choose the mode of the game , it can be 6x6 , but the cell will be getting smaller but proportional
+     * @param number the number columns and rows that the player will choose to play
+     */
     public static void setN(int number) {
         n = number;
         LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
     }
 
+    /**
+     * Get the length of the Cell to use it in another method
+     * @return length
+     */
     public static double getLENGTH() {
         return LENGTH;
     }
 
 
-
-
-    //Only when it moves , then spawn
     /**
-     * randomly generalize the number at a random cell.
+     * randomly generalize the number at a random cell. but it will only spawn Cell with the number of 2 and 4
      * @param turn
      */
     private void randomFillNumber(int turn) {
@@ -90,12 +105,12 @@ public class GameScene {
         xCell = random.nextInt(aForBound+1);
         yCell = random.nextInt(bForBound+1);
         if (putTwo) {
-            text = textMaker.madeText("2", emptyCells[xCell][yCell].getX(), emptyCells[xCell][yCell].getY(), root);
+            text = textMaker.madeText("2", emptyCells[xCell][yCell].getX(), emptyCells[xCell][yCell].getY());
             emptyCells[xCell][yCell].setTextClass(text);
             root.getChildren().add(text);
             emptyCells[xCell][yCell].setColorByNumber(2);
         } else {
-            text = textMaker.madeText("4", emptyCells[xCell][yCell].getX(), emptyCells[xCell][yCell].getY(), root);
+            text = textMaker.madeText("4", emptyCells[xCell][yCell].getX(), emptyCells[xCell][yCell].getY());
             emptyCells[xCell][yCell].setTextClass(text);
             root.getChildren().add(text);
             emptyCells[xCell][yCell].setColorByNumber(4);
@@ -107,7 +122,7 @@ public class GameScene {
      * Core of the movement
      * @param i
      * @param j
-     * @param direct
+     * @param direct  4 direction left ,right, up and down
      * @return
      */
 
@@ -164,6 +179,10 @@ public class GameScene {
         return -1;
     }
 
+    /**
+     * method to the cell to left
+     */
+
     private void moveLeft() {
         for (int i = 0; i < n; i++) {
             for (int j = 1; j < n; j++) {
@@ -175,6 +194,11 @@ public class GameScene {
         }
     }
 
+
+    /**
+     * method to the cell to right
+     */
+
     private void moveRight() {
         for (int i = 0; i < n; i++) {
             for (int j = n - 1; j >= 0; j--) {
@@ -185,6 +209,10 @@ public class GameScene {
             }
         }
     }
+
+    /**
+     * method to the cell to Up
+     */
 
     private void moveUp() {
         for (int j = 0; j < n; j++) {
@@ -199,6 +227,10 @@ public class GameScene {
 
     }
 
+    /**
+     * method to the cell to Down
+     */
+
     private void moveDown() {
         for (int j = 0; j < n; j++) {
             for (int i = n - 1; i >= 0; i--) {
@@ -208,18 +240,25 @@ public class GameScene {
                 cells[i][j].setModify(false);
             }
         }
-
     }
+
 
     private boolean isValidDesH(int i, int j, int des, int sign) {
         if (des + sign < n && des + sign >= 0) {
-            if (cells[i][des + sign].getNumber() == cells[i][j].getNumber() && !cells[i][des + sign].getModify()
-                    && cells[i][des + sign].getNumber() != 0) {
+            if ((cells[i][des + sign].getNumber() == cells[i][j].getNumber()) && !cells[i][des + sign].getModify() && (cells[i][des + sign].getNumber() != 0)) {
                 return true;
             }
         }
         return false;
     }
+
+    /**
+     *  check whether additional happen horizontally
+     * @param i
+     * @param j
+     * @param des
+     * @param sign
+     */
 
     private void moveHorizontally(int i, int j, int des, int sign) {
         if (isValidDesH(i, j, des, sign)) {
@@ -238,6 +277,13 @@ public class GameScene {
             }
         return false;
     }
+    /**
+     *  check whether additional happen vertically
+     * @param i
+     * @param j
+     * @param des
+     * @param sign
+     */
 
     private void moveVertically(int i, int j, int des, int sign) {
         if (isValidDesV(i, j, des, sign)) {
@@ -299,18 +345,23 @@ public class GameScene {
 
 
     /**
-     * error
+     * sum up the score in every round
      */
     private void sumCellNumbersToScore() {
             score += Cell.scores;
-            //nonsumnumbers = false;
             Cell.scores = 0;
 
 
     }
-    //public boolean nonsumnumbers = true;
 
-    public void game(Scene gameScene, Group root, Stage primaryStage, Scene endGameScene, Group endGameRoot) {
+    /**
+     *  Create the scene for the 2048 GameScene
+     * @param gameScene
+     * @param root
+     * @param primaryStage
+     */
+
+    public void game(Scene gameScene, Group root, Stage primaryStage) {
         this.root = root;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -355,6 +406,10 @@ public class GameScene {
                 GameScene.this.sumCellNumbersToScore();
                 scoreText.setText(score + "");
                 haveEmptyCell = GameScene.this.haveEmptyCell();
+
+                /**
+                 * check whether there are any empty cell in the game. 0: there is the Cell Reached 2048, and it will show Victory scene. -1: Game over and there is no any empty cell in the game, it will show Defeat scene. 1: game continue every round because there is empty scene which have a random spawn of cell.
+                 */
                 if (haveEmptyCell == 0){
                     try {
                         Pane pane = FXMLLoader.load(getClass().getResource("FXML/Victory.fxml"));
@@ -383,8 +438,6 @@ public class GameScene {
             );
         });
     }
-
-
 }
 
 
