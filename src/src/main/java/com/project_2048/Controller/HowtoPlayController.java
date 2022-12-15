@@ -18,7 +18,7 @@ public class HowtoPlayController {
 
     @FXML
     public void nextscene(javafx.event.ActionEvent event)throws IOException {
-        root = FXMLLoader.load(getClass().getResource("About2048.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/com/project_2048/FXML/About2048.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

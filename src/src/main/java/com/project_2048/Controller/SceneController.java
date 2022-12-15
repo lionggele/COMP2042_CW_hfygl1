@@ -140,7 +140,7 @@ public class SceneController implements initializable {
 
     @FXML
      public void tutorial(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("HowtoPlay.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/com/project_2048/FXML/HowtoPlay.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
