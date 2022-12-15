@@ -28,7 +28,7 @@ public class Victory_DefeatController {
 
     @FXML
     public void scoreButton(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("/com/project_2048/EndGame.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/com/project_2048/FXML/EndGame.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

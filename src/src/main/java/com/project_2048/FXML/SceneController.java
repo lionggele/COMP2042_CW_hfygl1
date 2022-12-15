@@ -1,5 +1,6 @@
-package com.project_2048;
+package com.project_2048.FXML;
 
+import com.project_2048.GameScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -151,7 +152,7 @@ public class SceneController implements initializable {
 
     @FXML
      public void tutorial(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("FXML/HowtoPlay.fxml"));
+        root = FXMLLoader.load(getClass().getResource("HowtoPlay.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

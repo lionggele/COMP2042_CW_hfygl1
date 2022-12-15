@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="414.0" prefWidth="935.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project_2048.EndGameController">
+<AnchorPane prefHeight="414.0" prefWidth="935.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project_2048.FXML.EndGameController">
    <children>
       <Label layoutX="27.0" layoutY="14.0" text="Your Score is: ">
          <font>

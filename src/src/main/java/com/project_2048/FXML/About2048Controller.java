@@ -18,7 +18,7 @@ public class About2048Controller {
 
     @FXML
     void back(ActionEvent event) throws IOException {
-            root = FXMLLoader.load(getClass().getResource("/com/project_2048/Scene2.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/com/project_2048/FXML/Scene2.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

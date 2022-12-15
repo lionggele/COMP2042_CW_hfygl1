@@ -1,5 +1,6 @@
-package com.project_2048;
+package com.project_2048.FXML;
 
+import com.project_2048.GameScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
