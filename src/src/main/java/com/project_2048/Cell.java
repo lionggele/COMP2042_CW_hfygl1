@@ -1,7 +1,7 @@
 package com.project_2048;
 
 import javafx.scene.Group;
-import javafx.scene.paint.Color;    
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
@@ -14,6 +14,8 @@ public class Cell {
     private Group root;
     private Text textClass;
     private boolean modify = false;
+
+
 
     public void setModify(boolean modify) {
         this.modify = modify;

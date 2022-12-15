@@ -18,16 +18,17 @@ import java.util.Random;
  * Game Scene is the main method which consist the logic of the game.
  */
 public class GameScene {
-    private static int HEIGHT = 700;
+
+    private static final int HEIGHT = 700;
 
     // the grid ( 4x4 )
-    private static int n = 4;
+    public static int n = 4;
     private final static int distanceBetweenCells = 10;
     //calculating the length
     private static double LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
 
     // only can have one textMaker class that can have only one object (an instance of the class) at a time.
-    private TextMaker textMaker = TextMaker.getSingleInstance();
+    private final TextMaker textMaker = TextMaker.getSingleInstance();
 
     // Cells Array
     private static Cell[][] cells = new Cell[n][n];
@@ -69,6 +70,8 @@ public class GameScene {
 
     /**
      * randomly generalize the number at a random cell. but it will only spawn Cell with the number of 2 and 4
+     *
+     * @param
      * @param turn
      */
     private void randomFillNumber(int turn) {
