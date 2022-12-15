@@ -10,14 +10,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Victory_DefeatController {
+public class VictoryController {
     private Stage stage;
     private Parent root;
     private Scene scene;
     @FXML
     private long score;
-
-
 
 
     @FXML
@@ -28,5 +26,4 @@ public class Victory_DefeatController {
         stage.setScene(scene);
         stage.show();
     }
-
 }

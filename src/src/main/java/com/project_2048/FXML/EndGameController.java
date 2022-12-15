@@ -1,6 +1,7 @@
 package com.project_2048.FXML;
 
 import com.project_2048.GameScene;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -27,17 +28,7 @@ public class EndGameController implements initializable {
 
     @FXML
     private TextField Username;
-    /*
-    private static String username;
 
-    private Stage stage;
-    private Parent root;
-    private Scene scene;
-
-    public static String getUsername(){
-        return username;
-    }*/
-    //FileChooser filechooser = new FileChooser();
     @FXML
     private TextArea mytextarea4;
 
@@ -139,6 +130,14 @@ public class EndGameController implements initializable {
 
     public static File getMyfile(File f){
         return EndGameController.f;
+    }
+
+
+
+    @FXML
+    void quit(ActionEvent event) {
+        Platform.exit();
+
     }
 
 

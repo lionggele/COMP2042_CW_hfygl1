@@ -9,3 +9,5 @@ eee:300
 as:88
 we:976
 gege:296
+GE:284
+gege:136

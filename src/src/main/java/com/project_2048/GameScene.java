@@ -24,7 +24,7 @@ public class GameScene {
     //calculating the length
     private static double LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
     private TextMaker textMaker = TextMaker.getSingleInstance();
-    private Cell[][] cells = new Cell[n][n];
+    private static Cell[][] cells = new Cell[n][n];
     private Group root;
     static long score;
     private boolean ismoveable = true;
@@ -102,22 +102,6 @@ public class GameScene {
         }
     }
 
-
-    /**
-     * Check the number of empty cell and also whether we already reached the end of the game til the additional of 2048
-     */
-
-    private int  haveEmptyCell() {
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (cells[i][j].getNumber() == 0)
-                    return 1;
-                if(cells[i][j].getNumber() == 2048)
-                    return 0;
-            }
-        }
-        return -1;
-    }
 
     /**
      * Core of the movement
@@ -295,14 +279,36 @@ public class GameScene {
         return true;
     }
 
+
+    /**
+     * Check the number of empty cell and also whether we already reached the end of the game til the additional of 2048
+     */
+
+    private int haveEmptyCell() {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (cells[i][j].getNumber() == 2048 )
+                    return 0;
+                if (cells[i][j].getNumber() == 0)
+                    return 1;
+
+            }
+        }
+        return -1;
+    }
+
+
     /**
      * error
      */
     private void sumCellNumbersToScore() {
-        score += Cell.scores;
-        Cell.scores = 0;
+            score += Cell.scores;
+            //nonsumnumbers = false;
+            Cell.scores = 0;
+
 
     }
+    //public boolean nonsumnumbers = true;
 
     public void game(Scene gameScene, Group root, Stage primaryStage, Scene endGameScene, Group endGameRoot) {
         this.root = root;
@@ -333,6 +339,7 @@ public class GameScene {
         gameScene.addEventHandler(KeyEvent.KEY_PRESSED, key -> {
             Platform.runLater(() -> {
                 int haveEmptyCell;
+                boolean doesNotMove;
                 if (key.getCode() == KeyCode.DOWN) {
                     GameScene.this.moveDown();
                 } else if (key.getCode() == KeyCode.UP) {
@@ -348,7 +355,15 @@ public class GameScene {
                 GameScene.this.sumCellNumbersToScore();
                 scoreText.setText(score + "");
                 haveEmptyCell = GameScene.this.haveEmptyCell();
-                if (haveEmptyCell == -1) {
+                if (haveEmptyCell == 0){
+                    try {
+                        Pane pane = FXMLLoader.load(getClass().getResource("FXML/Victory.fxml"));
+                        primaryStage.setScene(new Scene(pane));
+                        primaryStage.show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else if (haveEmptyCell == -1) {
                     if (GameScene.this.canNotMove()) {
                         try {
                             Pane pane = FXMLLoader.load(getClass().getResource("FXML/Victory_Defeat.fxml"));
@@ -359,14 +374,13 @@ public class GameScene {
                             e.printStackTrace();
                         }
                         System.out.println(score);
-
-
-
                     }
-                } else if (haveEmptyCell == 1 && ismoveable == true)
+                } else if (haveEmptyCell == 1 && ismoveable == true){
                     GameScene.this.randomFillNumber(2);
-                ismoveable = true;
-            });
+                    Cell.scores = 0;
+                }
+                }
+            );
         });
     }
 
