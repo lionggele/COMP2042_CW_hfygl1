@@ -1,6 +1,5 @@
-package com.project_2048;
+package com.project_2048.FXML;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -10,20 +9,19 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Victory_DefeatController {
-    private Stage stage;
+public class HowtoPlayController {
     private Parent root;
     private Scene scene;
-    @FXML
-    private long score;
+
+    private Stage stage;
+
 
     @FXML
-    public void scoreButton(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("EndGame.fxml"));
+    public void nextscene(javafx.event.ActionEvent event)throws IOException {
+        root = FXMLLoader.load(getClass().getResource("About2048.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-
 }

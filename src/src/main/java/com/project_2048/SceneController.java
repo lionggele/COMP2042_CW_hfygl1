@@ -2,8 +2,10 @@ package com.project_2048;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ColorPicker;
@@ -15,12 +17,17 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 import static javafx.scene.paint.Color.rgb;
 
 
 public class SceneController implements initializable {
+
+
+    private Parent root;
+    private Scene scene;
     private Stage stage;
     static final int WIDTH = 900;
     static final int HEIGHT = 900;
@@ -39,7 +46,6 @@ public class SceneController implements initializable {
     private final static int distanceBetweenCells = 10;
     private static double LENGTH = HEIGHT / (double) n - ((n + 1) * distanceBetweenCells) / (double) n;
 
-    private int num;
 
     @FXML
     private Pane myPane;
@@ -141,6 +147,16 @@ public class SceneController implements initializable {
             num.setN(6);
 
         }
+    }
+
+    @FXML
+     public void tutorial(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("FXML/HowtoPlay.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
     }
 
 

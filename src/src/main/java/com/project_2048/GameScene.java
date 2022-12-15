@@ -360,7 +360,7 @@ public class GameScene {
                 if (haveEmptyCell == -1) {
                     if (GameScene.this.canNotMove()) {
                         try {
-                            Pane pane = FXMLLoader.load(getClass().getResource("Victory_Defeat.fxml"));
+                            Pane pane = FXMLLoader.load(getClass().getResource("FXML/Victory_Defeat.fxml"));
                             primaryStage.setScene(new Scene(pane));
                             primaryStage.show();
 
