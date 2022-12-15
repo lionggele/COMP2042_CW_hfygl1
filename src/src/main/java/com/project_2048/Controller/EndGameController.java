@@ -40,7 +40,7 @@ public class EndGameController implements initializable {
 
     FileChooser filechooser = new FileChooser();
     public String highscore;
-    private String a;
+    private String score;
 
     File file4x4 = new File("HighScore4x4.txt");
     File file5x5 = new File("HighScore5x5.txt");
@@ -52,11 +52,11 @@ public class EndGameController implements initializable {
     public void nextScene(ActionEvent event){
         int num = (int) GameScene.getScore();
         //getHighScore(num);
-        String a = String.valueOf(num);
+        score = String.valueOf(num);
         String username = Username.getText();
-        highscore = username + ":" + a;
+        highscore = username + ":" + score;
 
-        File fs = getMyfile(f);
+        File fs = getMyfile();
 
         if (fs.compareTo(file4x4) == 0){
             mytextarea4.appendText(highscore);
@@ -71,8 +71,8 @@ public class EndGameController implements initializable {
     }
     public void initialize(){
         int num = (int) GameScene.getScore();
-        String a = String.valueOf(num);
-        myScores.setText(a);
+        score = String.valueOf(num);
+        myScores.setText(score);
 
         filechooser.setInitialDirectory(new File("D:\\Code 3 (Y2S1)\\Software Maintainance (COMP2042)\\Project\\src\\src\\main\\java\\com\\project_2048\\HighScore"));
         files = filechooser.showOpenDialog(new Stage());
@@ -128,7 +128,7 @@ public class EndGameController implements initializable {
 
     }
 
-    public static File getMyfile(File f){
+    public static File getMyfile(){
         return EndGameController.f;
     }
 
