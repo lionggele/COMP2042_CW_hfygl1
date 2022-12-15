@@ -1,6 +1,5 @@
-package com.project_2048.Board;
+package com.project_2048;
 
-import com.project_2048.GameScene;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;

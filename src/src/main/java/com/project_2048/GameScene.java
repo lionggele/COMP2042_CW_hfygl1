@@ -1,7 +1,5 @@
 package com.project_2048;
 
-import com.project_2048.Board.Cell;
-import com.project_2048.Board.TextMaker;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -301,13 +299,6 @@ public class GameScene {
      * error
      */
     private void sumCellNumbersToScore() {
-        /*
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                score += cells[i][j].getNumber(); // buf from here , because it add the whole number of board on that session
-            }
-        }
-        */
         score += Cell.scores;
         Cell.scores = 0;
 

@@ -1,4 +1,4 @@
-package com.project_2048.Board;
+package com.project_2048;
 
 import javafx.application.Platform;
 import javafx.event.EventHandler;

@@ -1,4 +1,4 @@
-package com.project_2048.Board;
+package com.project_2048;
 
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
