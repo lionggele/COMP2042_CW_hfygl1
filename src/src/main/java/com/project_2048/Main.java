@@ -9,6 +9,8 @@ import javafx.stage.Stage;
 /**
  *  Main class is to display and run the whole Javafx program. It loads the first scene, is Scene 2.fxml
  */
+
+
 public class Main extends Application {
 
     @Override

@@ -19,9 +19,6 @@ import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Scanner;
-
-import static javafx.scene.paint.Color.rgb;
 
 
 public class SceneController implements initializable {
@@ -37,15 +34,6 @@ public class SceneController implements initializable {
     private Group gameRoot = new Group();
     private Scene gameScene;
 
-    private static Scanner input= new Scanner(System.in);//account
-
-
-    Group endgameRoot = new Group();
-    Scene endGameScene = new Scene(endgameRoot, WIDTH, HEIGHT, rgb(250, 20, 100, 0.2));
-
-    private static double n;
-    private final static int distanceBetweenCells = 10;
-    private static double LENGTH = HEIGHT / (double) n - ((n + 1) * distanceBetweenCells) / (double) n;
 
 
     @FXML

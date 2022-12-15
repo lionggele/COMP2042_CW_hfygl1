@@ -17,7 +17,6 @@ import java.util.Random;
 /**
  * Game Scene is the main method which consist the logic of the game.
  */
-
 public class GameScene {
     private static int HEIGHT = 700;
 
@@ -40,6 +39,7 @@ public class GameScene {
     // boolean to check whether the Cell is moved
     private boolean ismoveable = true;
 
+
     /**
      * get the score from the game scene and then display it at the end game.fxml
       */
@@ -51,6 +51,8 @@ public class GameScene {
      * setN let the user choose the mode of the game , it can be 6x6 , but the cell will be getting smaller but proportional
      * @param number the number columns and rows that the player will choose to play
      */
+
+
     public static void setN(int number) {
         n = number;
         LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
@@ -421,7 +423,7 @@ public class GameScene {
                 } else if (haveEmptyCell == -1) {
                     if (GameScene.this.canNotMove()) {
                         try {
-                            Pane pane = FXMLLoader.load(getClass().getResource("FXML/Victory_Defeat.fxml"));
+                            Pane pane = FXMLLoader.load(getClass().getResource("FXML/Defeat.fxml"));
                             primaryStage.setScene(new Scene(pane));
                             primaryStage.show();
 

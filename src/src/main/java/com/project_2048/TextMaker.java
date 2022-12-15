@@ -31,11 +31,8 @@ public class TextMaker {
      * @return text
      */
     public Text madeText(String input, double xCell, double yCell) {
-        //??
         double length = GameScene.getLENGTH();
-
         double fontSize = (3 * length) / 7.0;
-
         Text text = new Text(input);
         text.setFont(Font.font(fontSize));
         text.relocate((xCell + (0.5)* length / 7.0), (yCell + 2 * length / 7.0));

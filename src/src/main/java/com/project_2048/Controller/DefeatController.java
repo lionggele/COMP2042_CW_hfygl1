@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Victory_DefeatController {
+public class DefeatController {
     private Stage stage;
     private Parent root;
     private Scene scene;

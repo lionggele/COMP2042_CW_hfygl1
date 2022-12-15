@@ -14,9 +14,6 @@ public class VictoryController {
     private Stage stage;
     private Parent root;
     private Scene scene;
-    @FXML
-    private long score;
-
 
     @FXML
     public void scoreButton(ActionEvent event) throws IOException {
