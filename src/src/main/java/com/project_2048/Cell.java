@@ -128,12 +128,15 @@ public class Cell {
         textClass.setText("0");  // to make sure the number become 0 and then the colour will be changed.
         root.getChildren().remove(textClass);
 
+
         // result of addition
         cell.setColorByNumber(cell.getNumber());
         setColorByNumber(getNumber());
 
         //temp
         scores = cell.getNumber() + this.getNumber();
+        System.out.println("cell.getNumber :" + cell.getNumber());
+        System.out.println("this.getNumber :" + this.getNumber());
 
 
     }
