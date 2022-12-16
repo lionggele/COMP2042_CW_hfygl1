@@ -39,19 +39,19 @@ Changes:
 5. Create difficulty 
 6. load and save score on score board into file
 7. Bugs: spawn a random cell when it does not move (fixed)
+8. J unit ( test )
+9. solve When 2 sets of same cells move horizontally, it only changeCell for the nearest to the edge.
+10. 
 
 
 
 
-
-
-Bugs: 
-3. When 2 sets of same cells move horizontally, it only changeCell for the nearest to the edge.
-
+Bugs
+1. Grid must be 6 ( but it suppose to be 4 )
 
 need to do:
 2. high score:( logic )
 5. reach 2048 pop up screen for continue playing.
-6. save logic without the file. 
+
 
 
