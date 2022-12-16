@@ -16,6 +16,10 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/**
+ * This is an EndGame Controller is implemented with initialize() method. This allows the implementing class to perform any necessary post-processing on the content.
+ * It provides the End Game controller with access to the resources that were used to load the document and the location that was used to resolve relative paths within the document.
+ */
 public class EndGameController implements initializable {
 
     static File f;
@@ -47,6 +51,10 @@ public class EndGameController implements initializable {
     File file6x6 = new File("HighScore6x6.txt");
 
 
+    /**
+     * This is a method button which to get the score from Game scene, change data type to string, get and add the username with the scor and load the file which is assigned to when the button clicked.
+     * @param event
+     */
 
     @FXML
     public void nextScene(ActionEvent event){
@@ -69,18 +77,18 @@ public class EndGameController implements initializable {
 
         }
     }
+
+    /**
+     * it is called to initialize a controller after its root element has been completely processed.
+     */
     public void initialize(){
         int num = (int) GameScene.getScore();
         score = String.valueOf(num);
         myScores.setText(score);
-
         filechooser.setInitialDirectory(new File("D:\\Code 3 (Y2S1)\\Software Maintainance (COMP2042)\\Project\\src\\src\\main\\java\\com\\project_2048\\HighScore"));
         files = filechooser.showOpenDialog(new Stage());
-
-
         try {
             Scanner scanner = new Scanner(files);
-
             f = new File(files.getAbsolutePath().substring(files.getAbsolutePath().lastIndexOf("\\")+1));
             if (f.compareTo(file4x4) == 0){
                 while (scanner.hasNextLine()) {
@@ -96,12 +104,15 @@ public class EndGameController implements initializable {
                     mytextarea6.appendText(scanner.nextLine() + "\n");
                 }
             }
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * the method is to save the data from what is load on the text area
+     * @param event
+     */
     @FXML
     void save(ActionEvent event) {
         if( f != null) {
@@ -116,6 +127,11 @@ public class EndGameController implements initializable {
 
     }
 
+    /**
+     * this method is store what the highscore is to a file
+     * @param file  read the file
+     * @param highscore get the highscore which is asisgned and store it in the file
+     */
     public void saveData(File file, String highscore) {
         try {
             PrintWriter printWriter = new PrintWriter(file);
@@ -128,11 +144,19 @@ public class EndGameController implements initializable {
 
     }
 
+    /**
+     * This method is to get the file name and path which is selected.
+     * @return
+     */
+
     public static File getMyfile(){
         return EndGameController.f;
     }
 
-
+    /**
+     *  This is the quite scene method
+     * @param event
+     */
 
     @FXML
     void quit(ActionEvent event) {

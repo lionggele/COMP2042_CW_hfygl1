@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project_2048.Controller.About2048Controller">
    <children>
       <ImageView fitHeight="385.0" fitWidth="578.0" layoutX="11.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">

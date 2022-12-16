@@ -72,7 +72,6 @@ public class Cell {
         //textclass
         if (!textClass.getText().equals("0")) {
             root.getChildren().add(textClass);
-
         }
 
         setColorByNumber(getNumber());
@@ -81,8 +80,7 @@ public class Cell {
 
     /**
      *
-     * @param
-     *      number , set the number towards the colour code.
+     * @param number , set the number towards the colour code.
      */
     public void setColorByNumber(int number) {
         switch (number) {
@@ -147,19 +145,22 @@ public class Cell {
 
         if(cell.getNumber() != 0){
             added = true;
-        } else{
-            added = false;
         }
-        System.out.println(added);
     }
 
+    /**
+     *  get the boolean value in added
+     * @return the boolean of added variable
+     */
     public static boolean getadded(){
-
         return added;
     }
 
+    /**
+     *  get the boolean value in moved
+     * @return the boolean of moved variable
+     */
     public static boolean getmoved(){
-
         return moved;
     }
 
@@ -172,39 +173,33 @@ public class Cell {
     }
 
     /**
-     * @return
-     *      Returns the value of the public variable.
-     *      getX is to get the value of X values and use it in the Game Scene
+     * @return Returns the value of the public variable.
+     *         getX is to get the value of X values and use it in the Game Scene
      */
-
     public double getX() {
         return rectangle.getX();
     }
 
     /**
-     * @return
-     *      getY is to get the value of Y values and use it in the Game Scene
+     * @return  getY is to get the value of Y values and use it in the Game Scene
      *
      */
-
     public double getY() {
         return rectangle.getY();
     }
+
     /**
-     * @return
-     *      getNumber is to get the value of String values and change it into Integer with Integer.parseInt and use it in the Game Scene
+     * @return  getNumber is to get the value of String values and change it into Integer with Integer.parseInt and use it in the Game Scene
      *
      */
-
     public int getNumber() {
         return Integer.parseInt(textClass.getText());
     }
+
     /**
-     * @return
-     *      get textClass is to get the value of textClass values and use it in adder
+     * @return get textClass is to get the value of textClass values and use it in adder
      *
      */
-
     private Text getTextClass() {
         return textClass;
     }

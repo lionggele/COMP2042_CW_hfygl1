@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 
 import java.util.Random;
 
+import static com.project_2048.Cell.added;
+
 
 /**
  * Game Scene is the main method which consist the logic of the game.
@@ -440,11 +442,13 @@ public class GameScene {
                         }
                         System.out.println(score);
                     }
-                } else if (haveEmptyCell == 1 && ismoveable == true && addition == true || moved == true){
-                    Cell.moved = false;
-                    Cell.added =false;
-                    GameScene.this.randomFillNumber(2);
-                    Cell.scores = 0;
+                } else if (haveEmptyCell == 1 && ismoveable == true){
+                    if (moved == true ||addition == true){
+                        Cell.moved = false;
+                        added = false;
+                        GameScene.this.randomFillNumber(2);
+                        Cell.scores = 0;
+                    }
                 }
                 }
             );

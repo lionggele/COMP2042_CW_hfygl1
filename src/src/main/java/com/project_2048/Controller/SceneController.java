@@ -20,7 +20,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-
+/**
+ * This is an SceneController is implemented with initialize() method. This allows the implementing class to perform any necessary post-processing on the content.
+ * It provides the SceneController with access to the resources that were used to load the document and the location that was used to resolve relative paths within the document.
+ */
 public class SceneController implements initializable {
 
 
@@ -34,8 +37,7 @@ public class SceneController implements initializable {
     private Group gameRoot = new Group();
     private Scene gameScene;
 
-
-
+    //FXML
     @FXML
     private Pane myPane;
     @FXML
@@ -53,9 +55,13 @@ public class SceneController implements initializable {
     @FXML
     private Label GridLabel;
 
-
-
-    //submit button
+    /**
+     * This is a method button which to load the fxml and switch scene when the button clicked.
+     * However, this is for the load to our game scne
+     * @param event
+     * @throws IOException @throws IOException If an input or output
+     *                     exception occurred
+     */
     public void switchToScene1(javafx.event.ActionEvent event) {
 
         SetGetColour back;
@@ -74,6 +80,10 @@ public class SceneController implements initializable {
         stage.show();
     }
 
+    /**
+     * method to change our game scene colour
+     * @return the hex code which is picker in the colourpicker
+     */
     public SetGetColour changeColor() {
         Color Colour = myColorPicker.getValue();
         SetGetColour mycolour = new SetGetColour();
@@ -92,7 +102,9 @@ public class SceneController implements initializable {
         this.gameRoot = gameRoot;
     }
 
-
+    /**
+     * Class with have get and set method for colour which is chosen in another method
+     */
     class SetGetColour {
         private String myColour;
 
@@ -106,8 +118,10 @@ public class SceneController implements initializable {
 
     }
 
-
-
+    /**
+     *  set the Difficulty to 4x4
+     * @param event
+     */
     @FXML
     public void changeGrid4x4(javafx.event.ActionEvent event) {
         if (CheckBox1.isSelected()){
@@ -118,6 +132,11 @@ public class SceneController implements initializable {
         }
     }
 
+
+    /**
+     *  set the Difficulty to 5x5
+     * @param event
+     */
     @FXML
     public void changeGrid5x5(javafx.event.ActionEvent event){
         if (CheckBox2.isSelected()){
@@ -127,6 +146,10 @@ public class SceneController implements initializable {
         }
     }
 
+    /**
+     *  set the Difficulty to 6x6
+     * @param event
+     */
     @FXML
     void changeGrid6x6(ActionEvent event) {
         if (CheckBox3.isSelected()){
@@ -137,6 +160,13 @@ public class SceneController implements initializable {
         }
     }
 
+
+    /**
+     * This is a method button which to load the fxml and switch scene when the button clicked.
+     * @param event
+     * @throws IOException @throws IOException If an input or output
+     *                     exception occurred
+     */
     @FXML
      public void tutorial(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/com/project_2048/FXML/HowtoPlay.fxml"));
