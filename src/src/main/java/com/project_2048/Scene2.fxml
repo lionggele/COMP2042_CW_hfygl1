@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="myPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="605.0" style="-fx-background-color: #dbc5bd;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project_2048.SceneController">
+   <children>
+      <Label layoutX="172.0" prefHeight="143.0" prefWidth="276.0" style="-fx-font-weight: bold;" text=" 2048" textFill="#90766b">
+         <font>
+            <Font size="86.0" />
+         </font>
+      </Label>
+      <Button layoutX="246.0" layoutY="312.0" maxHeight="53.0" maxWidth="102.0" minHeight="53.0" minWidth="102.0" mnemonicParsing="false" onAction="#switchToScene1" prefHeight="53.0" prefWidth="102.0" text="Start " textAlignment="CENTER" textFill="#90766b">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Button>
+      <ColorPicker fx:id="myColorPicker" layoutX="234.0" layoutY="131.0" onAction="#changeColor">
+         <value>
+            <Color red="0.9210526347160339" green="0.6140350699424744" blue="0.34539473056793213" />
+         </value></ColorPicker>
+      <CheckBox fx:id="CheckBox1" layoutX="193.0" layoutY="186.0" mnemonicParsing="false" onAction="#changeGrid4x4" prefHeight="44.0" prefWidth="83.0" text="4x4" textFill="#90766b">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></CheckBox>
+      <CheckBox fx:id="CheckBox2" layoutX="312.0" layoutY="193.0" mnemonicParsing="false" onAction="#changeGrid5x5" text="5x5" textFill="#90766b">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></CheckBox>
+      <CheckBox fx:id="CheckBox3" layoutX="425.0" layoutY="193.0" mnemonicParsing="false" onAction="#changeGrid6x6" text="6x6" textFill="#90766b">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></CheckBox>
+      <Label fx:id="GridLabel" layoutX="58.0" layoutY="176.0" prefHeight="63.0" prefWidth="102.0" style="-fx-font-weight: bold;" text="GRID" textFill="#90766b">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Button layoutX="222.0" layoutY="249.0" mnemonicParsing="false" onAction="#tutorial" prefHeight="44.0" prefWidth="150.0" text="How to Play " textFill="#90766b">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>

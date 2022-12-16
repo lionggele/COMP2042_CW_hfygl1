@@ -14,6 +14,8 @@ public class Cell {
     private Group root;
     private Text textClass;
     private boolean modify = false;
+    public static boolean added = false;
+    public static boolean moved = false;
 
 
 
@@ -47,6 +49,8 @@ public class Cell {
         root.getChildren().add(rectangle);
     }
 
+
+
     /**
      * Change the appearance number in each of the box
      * @param cell    changing the cell by using the control in "GameScene.java". It will update the numbering (value) of the cell and also the colour using the setcolourNumber()
@@ -59,13 +63,16 @@ public class Cell {
         root.getChildren().remove(cell.getTextClass()); // remove the changed position number
         root.getChildren().remove(textClass); // remove the original position number
 
-        // set the new changed Number(test) when
+        // set the new changed Number(test) when it not equal to 0
         if (!cell.getTextClass().getText().equals("0")) {
             root.getChildren().add(cell.getTextClass());
+            moved = true;
         }
 
+        //textclass
         if (!textClass.getText().equals("0")) {
             root.getChildren().add(textClass);
+
         }
 
         setColorByNumber(getNumber());
@@ -120,25 +127,40 @@ public class Cell {
     }
 
 
+
     /**
      * @param cell  getTextClass from every box. In Game Scene, if there are any similar number near it, addition happen over here. Add the 2 value which is valid to be added. Scores is also added in hear.
      */
     public void adder(Cell cell) {
+
         cell.getTextClass().setText((cell.getNumber() + this.getNumber()) + "");
+
         textClass.setText("0");  // to make sure the number become 0 and then the colour will be changed.
         root.getChildren().remove(textClass);
 
-
-        // result of addition
+                // result of addition
         cell.setColorByNumber(cell.getNumber());
         setColorByNumber(getNumber());
 
         //temp
-        scores = cell.getNumber() + this.getNumber();
-        System.out.println("cell.getNumber :" + cell.getNumber());
-        System.out.println("this.getNumber :" + this.getNumber());
+        scores = cell.getNumber();
 
+        if(cell.getNumber() != 0){
+            added = true;
+        } else{
+            added = false;
+        }
+        System.out.println(added);
+    }
 
+    public static boolean getadded(){
+
+        return added;
+    }
+
+    public static boolean getmoved(){
+
+        return moved;
     }
 
     /**

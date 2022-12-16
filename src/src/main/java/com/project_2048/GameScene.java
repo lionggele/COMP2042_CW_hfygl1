@@ -22,7 +22,7 @@ public class GameScene {
     private static final int HEIGHT = 700;
 
     // the grid ( 4x4 )
-    public static int n = 4;
+    public static int n = 6;
     private final static int distanceBetweenCells = 10;
     //calculating the length
     private static double LENGTH = (HEIGHT - ((n + 1) * distanceBetweenCells)) / (double) n;
@@ -35,7 +35,7 @@ public class GameScene {
     private Group root;
 
     // Variable for the score
-    static long score;
+    static long score = 0;
 
     // boolean to check whether the Cell is moved
     private boolean ismoveable = true;
@@ -74,7 +74,7 @@ public class GameScene {
      * @param
      * @param turn
      */
-    private void randomFillNumber(int turn) {
+    public void randomFillNumber(int turn) {
 
         Cell[][] emptyCells = new Cell[n][n];
         int a = 0;
@@ -306,7 +306,7 @@ public class GameScene {
      * @return
      */
 
-    private boolean haveSameNumberNearly(int i, int j) {
+    public boolean haveSameNumberNearly(int i, int j) {
         if (i < n - 1 && j < n - 1) {
             if (cells[i + 1][j].getNumber() == cells[i][j].getNumber())
                 return true;
@@ -319,7 +319,7 @@ public class GameScene {
      * @return
      */
 
-    private boolean canNotMove() {
+    public boolean canNotMove() {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (haveSameNumberNearly(i, j)) {
@@ -335,14 +335,13 @@ public class GameScene {
      * Check the number of empty cell and also whether we already reached the end of the game til the additional of 2048
      */
 
-    private int haveEmptyCell() {
+    public int haveEmptyCell() {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (cells[i][j].getNumber() == 2048 )
                     return 0;
                 if (cells[i][j].getNumber() == 0)
                     return 1;
-
             }
         }
         return -1;
@@ -352,12 +351,12 @@ public class GameScene {
     /**
      * sum up the score in every round
      */
-    private void sumCellNumbersToScore() {
+    public void sumCellNumbersToScore() {
             score += Cell.scores;
             Cell.scores = 0;
-
-
     }
+
+
 
     /**
      *  Create the scene for the 2048 GameScene
@@ -395,7 +394,8 @@ public class GameScene {
         gameScene.addEventHandler(KeyEvent.KEY_PRESSED, key -> {
             Platform.runLater(() -> {
                 int haveEmptyCell;
-                boolean doesNotMove;
+                boolean addition;
+                boolean moved;
                 if (key.getCode() == KeyCode.DOWN) {
                     GameScene.this.moveDown();
                 } else if (key.getCode() == KeyCode.UP) {
@@ -411,6 +411,11 @@ public class GameScene {
                 GameScene.this.sumCellNumbersToScore();
                 scoreText.setText(score + "");
                 haveEmptyCell = GameScene.this.haveEmptyCell();
+
+                addition = Cell.getadded();
+                moved = Cell.getmoved();
+
+
 
                 /**
                  * check whether there are any empty cell in the game. 0: there is the Cell Reached 2048, and it will show Victory scene. -1: Game over and there is no any empty cell in the game, it will show Defeat scene. 1: game continue every round because there is empty scene which have a random spawn of cell.
@@ -435,7 +440,9 @@ public class GameScene {
                         }
                         System.out.println(score);
                     }
-                } else if (haveEmptyCell == 1 && ismoveable == true){
+                } else if (haveEmptyCell == 1 && ismoveable == true && addition == true || moved == true){
+                    Cell.moved = false;
+                    Cell.added =false;
                     GameScene.this.randomFillNumber(2);
                     Cell.scores = 0;
                 }

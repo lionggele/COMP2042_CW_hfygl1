@@ -116,7 +116,6 @@ public class SceneController implements initializable {
             num.setN(4);
 
         }
-
     }
 
     @FXML
